@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+<div class='loginparent'>
+    {% if err %}
+    <div class="alert alert-warning alert-dismissible fade show alerta" role="alert">
+        {{ err }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    <form method='post' action='/register' class='login'>
+        <div class='mb-3'>
+            <label for='username' class='form-label'>Username</label>
+            <input type='text' autocomplete="off" name='username' id='username' placeholder='username' class='form-control'>
+        </div>
+        <div class='mb-3'>
+            <label for='password' class='form-label'>Password</label>
+            <input type='password' autocomplete="off" name='password' id='password' placeholder='password' class='form-control'>
+        </div>
+        <div class='mb-3'>
+            <label for='confirm' class='form-label'>Confirm password</label>
+            <input type='password' autocomplete="off" name='confirm' id='confirm' placeholder='confirm your password' class='form-control'>
+        </div>
+        <div class='mb-3'>
+            <h5>Location</h5>
+            <input class='form-check-input' type='radio' id='actual-location' name='location' value='actual-location'>
+            <label class='form-check-label' for='actual-location'>Actual location</label>
+            <br>
+            <div class='row g-3 align-items-center'>
+                <div class='col-auto'>
+                    <input class='form-check-input' type='radio' id='custom-coords' name='location' value='custom-coords'>
+                </div>
+                <div class='col-auto'>
+                    <input type='text' id='lat' name='lat' class='form-control' placeholder='latitude, e.g: 34.52' autocomplete="off">
+                </div>
+                <div class='col-auto'>
+                    <input type='text' id='lon' name='lon' class='form-control' placeholder='longitude, e.g: -53.00' autocomplete="off">
+                </div>
+            </div>
+        </div>
+        <button class='btn btn-primary'>Register</button>
+    </form>
+</div>
+
+{% endblock %}

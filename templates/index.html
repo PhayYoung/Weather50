@@ -1,0 +1,333 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Weather50
+{% endblock %}
+{% block main %}
+    <div id='index-window'>
+        <div class='parent'>
+            <div class="card mb-3 border-secondary" id='current'>
+                <div class="card-body">
+                    <h5 class="card-title">Current weather</h5>
+                    <table class='table table-striped table-borderless'>
+                        <thead>          
+                            <th scope='col' id='curr-temp'>Temperature</th>
+                            <th scope='col' id='curr-feels'>Feels like</th>
+                            <th scope='col' id='curr-hum'>Humidity</th>
+                            <th scope='col' id='curr-press'>Pressure</th>                     
+                        </thead>
+                        <tbody>                    
+                            <td id='temp'></td>
+                            <td id='feels-like'></td>
+                            <td id='humidity'></td>
+                            <td id='pressure'></td>                   
+                        </tbody>
+                    </table>
+                    <table class='table table-striped table-borderless'>
+                        <thead>
+                            <th scope='col' id='curr-clouds'>Cloudiness</th> 
+                            <th scope='col' id='curr-speed'>Wind speed</th>
+                            <th scope='col' id='curr-dir'>Wind direction (north 0°)</th>
+                            <th scope='col' id='curr-weather'>Weather</th>
+                        </thead>
+                        <tbody>
+                            <td id='cloudiness'></td>
+                            <td id='wind-speed'></td>
+                            <td id='wind-direction'></td>
+                            <td id='weather'></td>
+                        </tbody>
+                    </table>
+                    <p class="card-text"><small class="text-muted" id='current-footer'>Last updated</small></p>
+                </div>
+            </div>
+
+            <div class="card-group h-auto" id='daily-other'>
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title" id='date-0'></h5>
+                        <table class='table'>
+                            <thead>
+                                <th>Min</th>
+                                <th>Max</th>
+                            </thead>
+                            <tbody>
+                                <td id='min-0'></td>
+                                <td id='max-0'></td>
+                            </tbody>
+                        </table>
+                        <table class='table'>
+                            <thead>
+                                <th>Rain prob</th>
+                            </thead>
+                            <tbody>
+                                <td id='prob-0'></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title" id='date-1'></h5>
+                        <table class='table'>
+                            <thead>
+                                <th>Min</th>
+                                <th>Max</th>
+                            </thead>
+                            <tbody>
+                                <td id='min-1'></td>
+                                <td id='max-1'></td>
+                            </tbody>
+                        </table>
+                        <table class='table'>
+                            <thead>
+                                <th>Rain prob</th>
+                            </thead>
+                            <tbody>
+                                <td id='prob-1'></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>    
+            <div class="card-group h-auto" id='daily-other'>
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title" id='date-2'></h5>
+                        <table class='table'>
+                            <thead>
+                                <th>Min</th>
+                                <th>Max</th>
+                            </thead>
+                            <tbody>
+                                <td id='min-2'></td>
+                                <td id='max-2'></td>
+                            </tbody>
+                        </table>
+                        <table class='table'>
+                            <thead>
+                                <th>Rain prob</th>
+                            </thead>
+                            <tbody>
+                                <td id='prob-2'></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title" id='date-3'></h5>
+                        <table class='table'>
+                            <thead>
+                                <th>Min</th>
+                                <th>Max</th>
+                            </thead>
+                            <tbody>
+                                <td id='min-3'></td>
+                                <td id='max-3'></td>
+                            </tbody>
+                        </table>
+                        <table class='table'>
+                            <thead>
+                                <th>Rain prob</th>
+                            </thead>
+                            <tbody>
+                                <td id='prob-3'></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card-group h-auto" id='daily-other'>
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title" id='date-4'></h5>
+                        <table class='table'>
+                            <thead>
+                                <th>Min</th>
+                                <th>Max</th>
+                            </thead>
+                            <tbody>
+                                <td id='min-4'></td>
+                                <td id='max-4'></td>
+                            </tbody>
+                        </table>
+                        <table class='table'>
+                            <thead>
+                                <th>Rain prob</th>
+                            </thead>
+                            <tbody>
+                                <td id='prob-4'></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title" id='date-5'></h5>
+                        <table class='table'>
+                            <thead>
+                                <th>Min</th>
+                                <th>Max</th>
+                            </thead>
+                            <tbody>
+                                <td id='min-5'></td>
+                                <td id='max-5'></td>
+                            </tbody>
+                        </table>
+                        <table class='table'>
+                            <thead>
+                                <th>Rain prob</th>
+                            </thead>
+                            <tbody>
+                                <td id='prob-5'></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card-group h-auto" id='daily-other'>
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title" id='date-6'></h5>
+                        <table class='table'>
+                            <thead>
+                                <th>Min</th>
+                                <th>Max</th>
+                            </thead>
+                            <tbody>
+                                <td id='min-6'></td>
+                                <td id='max-6'></td>
+                            </tbody>
+                        </table>
+                        <table class='table'>
+                            <thead>
+                                <th>Rain prob</th>
+                            </thead>
+                            <tbody>
+                                <td id='prob-6'></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title" id='date-7'></h5>
+                        <table class='table'>
+                            <thead>
+                                <th>Min</th>
+                                <th>Max</th>
+                            </thead>
+                            <tbody>
+                                <td id='min-7'></td>
+                                <td id='max-7'></td>
+                            </tbody>
+                        </table>
+                        <table class='table'>
+                            <thead>
+                                <th>Rain prob</th>
+                            </thead>
+                            <tbody>
+                                <td id='prob-7'></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(() => {
+
+            const geolocate = () => {
+                if (window.navigator && window.navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(locateAndShowWeather);
+                } else {
+                    alert("This browser doesn't support geolocation")
+                }
+            }
+            
+            const locateAndShowWeather = coords => {
+                const { latitude, longitude } = coords.coords;
+
+                let lat = latitude.toFixed(2);
+                let lon = longitude.toFixed(2);
+
+                let today = new Date();
+                let time = today.getHours() + ":" + today.getMinutes();
+
+                document.querySelector('#current-footer').innerHTML = `Last updated ${time}`
+                
+                let location = JSON.parse('{{location|tojson}}');
+                let url = ''
+
+                if (location === 'actual-location')
+                {
+                    url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=d608c2202a50fed723ae9aabe181e791&units=metric`;
+                }
+                else
+                {
+                    coordinates = location.split(',');
+                    latitud = coordinates[0];
+                    longitud = coordinates[1];
+
+                    url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitud}&lon=${longitud}&exclude=minutely,hourly,alerts&appid=d608c2202a50fed723ae9aabe181e791&units=metric`;
+                }
+
+                axios.get(url)
+                    .then(res => {
+                        document.querySelector('#temp').innerHTML = `${res.data.current.temp}°C`;
+                        document.querySelector('#feels-like').innerHTML = `${res.data.current.feels_like}°C`;
+                        document.querySelector('#humidity').innerHTML = `${res.data.current.humidity}%`;
+                        document.querySelector('#pressure').innerHTML = `${res.data.current.pressure} pHa`;
+                        document.querySelector('#cloudiness').innerHTML = `${res.data.current.clouds}%`;
+                        document.querySelector('#wind-speed').innerHTML = `${res.data.current.wind_speed} m/s`;
+                        document.querySelector('#wind-direction').innerHTML = `${res.data.current.wind_deg}°`;
+                        document.querySelector('#weather').innerHTML = `${res.data.current.weather[0].description}`;
+
+                        for (let i = 0; i < 8; i++)
+                        {
+                            document.querySelector(`#min-${i}`).innerHTML = `${res.data.daily[i].temp.min}°C`;
+                            document.querySelector(`#max-${i}`).innerHTML = `${res.data.daily[i].temp.max}°C`;
+                            document.querySelector(`#prob-${i}`).innerHTML = `${Math.round(res.data.daily[i].pop * 100)}%`;
+                        
+                            let date = new Date(res.data.daily[i].dt * 1000);
+                            let daynum = date.getDate();
+                            let month = date.getMonth() + 1;
+                            let day = `${daynum}/${month}`;
+
+                            document.querySelector(`#date-${i}`).innerHTML = day;
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })  
+            }
+            geolocate();
+
+            const check = () => {
+                if (window.innerWidth < 654) {
+                    document.querySelector('#curr-temp').innerHTML = 'Temp';
+                    document.querySelector('#curr-feels').innerHTML = 'Feels';
+                    document.querySelector('#curr-hum').innerHTML = 'Humid';
+                    document.querySelector('#curr-press').innerHTML = 'Press';
+                    document.querySelector('#curr-clouds').innerHTML = 'Clouds';
+                    document.querySelector('#curr-speed').innerHTML = '&#127788;';
+                    document.querySelector('#curr-dir').innerHTML = 'dir';
+                    document.querySelector('#curr-weather').innerHTML = '&#9925;';
+                } else {
+                    document.querySelector('#curr-temp').innerHTML = 'Temperature';
+                    document.querySelector('#curr-feels').innerHTML = 'Feels like';
+                    document.querySelector('#curr-hum').innerHTML = 'Humidity';
+                    document.querySelector('#curr-press').innerHTML = 'Pressure';
+                    document.querySelector('#curr-clouds').innerHTML = 'Cloudiness';
+                    document.querySelector('#curr-speed').innerHTML = 'Wind speed';
+                    document.querySelector('#curr-dir').innerHTML = 'Wind direction (north 0°)';
+                    document.querySelector('#curr-weather').innerHTML = 'Weather';
+                }
+            }
+
+            setInterval(check, 100);
+
+        });
+    </script>
+{% endblock %}

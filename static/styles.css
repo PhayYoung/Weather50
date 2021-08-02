@@ -1,0 +1,63 @@
+.login {
+    width: 30rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+    background-color: rgba(80, 80, 255, 0.6);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: white;
+}
+
+.loginparent {
+    width: 30rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.alerta {
+    margin-top: 1rem;
+    width: 30rem;
+}
+
+#index-window {
+    height: 160.5rem;
+    width: 100%;
+    background: #ffffff;
+    position: absolute;
+}
+
+#current {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 90%;
+    margin: 0.7rem;
+}
+
+#daily-other {
+    position: relative;
+    top: 315px;
+    margin: 1rem;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 91%; 
+}
+
+@media (min-width: 576px) {
+
+    #index-window {
+        height: 92.5rem;
+    }
+}
+
+@media (max-width: 379px) {
+    #daily-other {
+        top: 345px;
+    }
+}
+
+@media (max-width: 360px) {
+    #daily-other {
+        top: 370px;
+    }
+}
